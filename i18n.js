@@ -336,7 +336,7 @@
     document.querySelectorAll('.locale-options button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.locale===locale)));
     document.title=['Carey 蒋皓泽｜影像与设计作品集','Carey Jiang | Film & Visual Design Portfolio','Carey 蒋皓泽｜映像・デザイン作品集'][INDEX[locale]];
   }
-  function apply(){scheduled=false;textNodes();specialPages();translateAttributes();}
+  function apply(){scheduled=false;document.querySelectorAll('[data-i18n-managed][data-zh][data-en][data-ja]').forEach(el=>setText(el,el.dataset[locale]??el.dataset.zh));textNodes();specialPages();translateAttributes();}
   function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(apply)}
   function setLocale(next){if(!LANGS.includes(next))return;locale=next;document.documentElement.lang={zh:'zh-CN',en:'en',ja:'ja'}[next];document.body.dataset.locale=next;try{localStorage.setItem('carey-locale',next)}catch{}schedule()}
   window.i18nMessage=key=>({deleteConfirm:['确认删除这件作品？','Delete this work?','この作品を削除しますか？'],invalidData:['作品数据格式不正确','The work file has an invalid format.','作品データの形式が正しくありません。']}[key]||[])[INDEX[locale]];
