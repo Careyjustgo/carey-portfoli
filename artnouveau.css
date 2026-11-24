@@ -692,3 +692,109 @@ main{flex:1 1 auto;min-height:0;margin:0 auto;overflow-y:auto;overflow-x:hidden;
 /* Frame artwork owns its timing; do not transform the whole character with CSS. */
 .brand-geng-stickers .geng-sticker-image,
 .brand-geng-stickers .geng-sticker:hover .geng-sticker-image{animation:none!important;transform:none!important;will-change:auto}
+
+/* Individually extracted artwork, with flexible proportions and readable captions. */
+.artwork-collections{width:100%;padding:0 clamp(8px,2vw,26px)}
+.artwork-collection{padding:clamp(30px,5vw,64px) 0;border-bottom:1px solid #ac956b55;scroll-margin-top:130px}
+.artwork-collection-head{position:relative;padding-right:65px;max-width:850px;margin-bottom:26px;color:#eddfbf}
+.artwork-collection-head small{color:#d1b47e;font:12px/1.5 var(--carey-ui);letter-spacing:.08em}
+.artwork-collection-head h4{margin:9px 0 12px;color:#f0e2c2;font:400 clamp(23px,3vw,37px)/1.3 Georgia,'Songti SC',serif}
+.artwork-collection-head p{margin:0;color:#cdd6c5;font:14px/1.8 var(--carey-ui)}
+.artwork-count{position:absolute;right:0;top:10px;color:#b9a071;font:40px/1 Georgia,serif}
+.artwork-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,25px);align-items:start}
+.artwork-grid--characters,.artwork-grid--portraits,.artwork-grid--tickets,.artwork-grid--brand-digital{grid-template-columns:repeat(4,minmax(0,1fr))}
+.artwork-grid--seasonal{grid-template-columns:repeat(2,minmax(0,1fr));max-width:880px}
+.artwork-plate{min-width:0;margin:0}
+.artwork-open{position:relative;display:block;width:100%;border:1px solid #ae976b99;padding:8px;background:#e8e3d6;cursor:zoom-in;overflow:hidden;transition:transform .24s ease,box-shadow .24s ease}
+.artwork-open:hover,.artwork-open:focus-visible{transform:translateY(-4px);box-shadow:0 14px 26px #06180e66;outline:2px solid #cdb17a;outline-offset:3px}
+.artwork-open img{display:block;width:100%;height:auto;object-fit:contain}
+.artwork-number{position:absolute;top:8px;left:8px;padding:5px 8px;background:#143429ed;color:#f1e4c8;font:12px Georgia,serif}
+.artwork-action{display:block;padding:10px 3px 2px;color:#183c2d;font:11px/1.5 var(--carey-ui);text-align:right}
+.artwork-plate figcaption{padding:10px 0 0;color:#e4d7b9;font:12px/1.6 var(--carey-ui);overflow-wrap:anywhere}
+.artwork-detail .detailpic{height:auto;max-height:75vh;overflow:auto;background:#e8e3d6}
+.artwork-detail .detailpic img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+@media(max-width:700px){.artwork-grid,.artwork-grid--characters,.artwork-grid--portraits,.artwork-grid--tickets,.artwork-grid--brand-digital{grid-template-columns:repeat(2,minmax(0,1fr))}.artwork-collection-head{padding-right:40px}.artwork-count{font-size:28px}.artwork-plate figcaption{font-size:11px}.artwork-open{padding:5px}.artwork-grid--seasonal{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.artwork-open{transition:none}}
+
+/* Collection navigation for the newly integrated work. */
+.artwork-index{display:flex;flex-wrap:wrap;gap:8px 12px;padding:22px 0 6px;position:static}
+.artwork-index a{display:block;color:#e4d7b9;text-decoration:none;border:1px solid #ac956b88;padding:10px 14px;font:12px/1.6 var(--carey-ui);overflow-wrap:anywhere}
+.artwork-index a:hover,.artwork-index a:focus-visible{background:#e8e3d6;color:#183c2d;outline:2px solid #cdb17a;outline-offset:2px}
+@media(max-width:700px){.artwork-index{flex-wrap:nowrap;overflow-x:auto;padding-bottom:13px}.artwork-index a{white-space:nowrap;font-size:11px}}
+
+/* New artwork uses the portfolio's paper/green pairing in every locale. */
+.artwork-collections{--artwork-paper:#efe2c6;--artwork-ink:#234633;--artwork-copy:#344d3d;--artwork-accent:#6e5839;background:var(--artwork-paper);color:var(--artwork-ink);font-family:var(--carey-ui);isolation:isolate}
+.artwork-collections .artwork-collection-head{color:var(--artwork-ink)}
+.artwork-collections .artwork-collection-head h4{color:var(--artwork-ink);font:600 clamp(24px,2.8vw,36px)/1.45 var(--carey-ui);letter-spacing:normal;overflow-wrap:anywhere;text-shadow:none}
+.artwork-collections .artwork-collection-head small{color:var(--artwork-accent);font:600 14px/1.6 var(--carey-ui);letter-spacing:.02em}
+.artwork-collections .artwork-collection-head p{color:var(--artwork-copy);font:400 16px/1.85 var(--carey-ui);letter-spacing:normal}
+.artwork-collections .artwork-count{color:var(--artwork-accent);font:500 32px/1.4 var(--carey-ui);font-variant-numeric:tabular-nums}
+.artwork-collections .artwork-plate figcaption{color:var(--artwork-ink);font:500 14px/1.65 var(--carey-ui);letter-spacing:normal}
+.artwork-collections .artwork-index a{color:var(--artwork-ink);background:#e8d9b8;border-color:#92784f;font:600 14px/1.6 var(--carey-ui)}
+.artwork-collections .artwork-index a:hover,.artwork-collections .artwork-index a:focus-visible{color:var(--artwork-ink);background:#d5c19e}
+.artwork-collections .artwork-number{color:#f6ebd3;background:#234633;font:600 13px/1.5 var(--carey-ui);font-variant-numeric:tabular-nums}
+.artwork-collections .artwork-action{color:var(--artwork-ink);font:500 13px/1.6 var(--carey-ui)}
+@media(max-width:700px){.artwork-collections .artwork-collection-head{padding-right:48px}.artwork-collections .artwork-collection-head h4{font-size:24px}.artwork-collections .artwork-collection-head p{font-size:15px}.artwork-collections .artwork-count{font-size:26px}.artwork-collections .artwork-plate figcaption{font-size:13px}.artwork-collections .artwork-index a{font-size:13px}}
+
+/* One document-wide typeface policy for all locales and UI states.
+   Original artwork remains raster/vector media and keeps its own lettering. */
+:root{
+  --carey-font:"PingFang SC","PingFang TC","PingFang HK",-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans CJK SC","Noto Sans CJK JP","Microsoft YaHei","Yu Gothic",sans-serif;
+  --carey-ui:var(--carey-font)!important;
+}
+html,
+html body,
+html body *,
+html body::before,
+html body::after,
+html body *::before,
+html body *::after,
+html body *::placeholder,
+html body *::file-selector-button{
+  font-family:var(--carey-font)!important;
+}
+
+/* Responsive layout must tolerate local font metrics instead of relying on PingFang widths. */
+:root{--carey-font:"PingFang SC","PingFang TC","PingFang HK",-apple-system,BlinkMacSystemFont,"HarmonyOS Sans SC","MiSans","Microsoft YaHei","Hiragino Sans","Noto Sans CJK SC","Noto Sans CJK JP",Arial,sans-serif}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+.ref-name{min-width:0;max-width:100%;gap:6px}
+.ref-name strong,.ref-name span{min-width:0}
+.ui-simulator-index-grid button{white-space:normal;overflow-wrap:anywhere;text-overflow:clip;line-height:1.55;min-height:44px}
+.ui-flow-image figcaption,.ui-screen-caption{min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.5}
+html .works-page .title,html:lang(ja) .works-page .title{max-width:100%;padding-right:160px;white-space:normal;overflow-wrap:anywhere}
+.works-page .title:after{right:0;left:auto}
+#detail{width:min(820px,calc(100% - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);overscroll-behavior:contain}
+#detail .modal{--detail-pad:28px;padding:var(--detail-pad);overflow:visible}
+#detail .modalhead{position:sticky;top:calc(-1 * var(--detail-pad));gap:12px;background:#eee1c6;z-index:4}
+#detail .modalhead h2{min-width:0;overflow-wrap:anywhere}
+#detail .close{flex:0 0 44px;width:44px;height:44px;min-width:44px;min-height:44px}
+#detail .close:before{content:none}
+#detailDesc{overflow-wrap:anywhere}
+@media(min-width:701px){.profile-reference .ref-name strong{font-size:clamp(64px,8.8vw,144px)}.profile-reference .ref-name span{font-size:clamp(16px,2.1vw,32px);padding-left:6px;letter-spacing:.05em}}
+@media(max-width:700px){
+ .landing{padding:20px 16px}
+ .landing-copy{min-width:0;width:100%;max-width:100%;padding:clamp(14px,4vw,24px);margin-inline:0}
+ .landing-copy h1{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+ html:lang(en) .landing-copy h1{font-size:clamp(28px,9vw,55px);letter-spacing:0;line-height:1.15}
+ .landing-copy .enter{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:7px;min-width:0;width:100%;max-width:100%;height:auto;padding:13px 10px;font-size:14px;letter-spacing:.07em;line-height:1.6;white-space:normal;overflow-wrap:anywhere}
+ .landing-copy .enter:before,.landing-copy .enter:after{margin:0}
+ .landing-copy .enter small{font-size:11px;letter-spacing:.03em}
+ .locale-bar{height:44px;min-height:44px;flex-shrink:0}
+ .locale-options button{min-width:40px;min-height:36px;padding-inline:9px}
+ html .works-page .title,html:lang(ja) .works-page .title{padding-right:0;max-width:100%}
+ .works-page .title:after{content:none}
+ #detail .modal{--detail-pad:18px}
+ #detail .modalhead h2{font-size:clamp(24px,6.5vw,32px);line-height:1.4}
+ .artwork-collection{scroll-margin-top:170px}
+}
+@media(max-width:430px){
+ .ui-journey-screens,.ui-case--zinlo .ui-journey-screens,.ui-archive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .ui-flow-image figcaption,.ui-journey .ui-screen-caption,.ui-archive-grid .ui-screen-caption{font-size:11px;line-height:1.5;padding:7px 6px}
+}
+
+@media(min-width:701px){html:lang(en) .landing-copy h1{font-size:clamp(36px,7vw,104px)}}
+.brand-system h6{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere}
+#detail .modal:before{right:0}
+#detail{overflow-x:hidden;overflow-y:auto}
+#detail.artwork-detail .detailpic{display:block;min-width:0;max-width:100%;overflow-x:hidden;overflow-y:auto}
+#detail.artwork-detail .detailpic img{min-width:0;max-width:100%}
